@@ -17,3 +17,52 @@ LinkList是基于双向链表来实现的，因此它的增删效率快，查询
 ### 哈希表
 哈希表其实就是以键值对key-value的方式进行存储的，只要有对应的key就能很快速的查找出对应元素  
 哈希表能同时兼备数组和链表的优点，它能在插入和查找时都具备良好的性能。
+
+## 算法
+### 插入算法
+ //插入算法
+    private int[] insertSort(int[] args){
+       if (args==null||args.length<2){
+           return args;
+       }
+       for (int i = 1;i<args.length;i++){
+           //将i号元素和前面的元素比较
+           for (int j = i-1;j>=0&&args[j]>args[j+1];j--){
+                int temp =args[j];
+                args[j] = args[j+1];
+                args[j+1] =temp;
+           }
+       }
+       return args;
+    }
+
+
+    //折半插入算法
+    private int[] halfInsertSort(int[] args){
+        if (args==null||args.length<2){
+            return args;
+        }
+        for (int i =1;i<args.length;i++){
+            int temp = args[i];  //待插入元素
+            
+            //二分法  将0到i-1号元素进行二分比较
+            int L = 0;
+            int R = i-1;
+            while (L<R){
+                int mid = i+(i-1)/2;
+                if (temp<args[mid]){  //继续二分 L到mid+1号元素
+                    R = mid+1;
+                }else {
+                    L = mid-1;    //继续二分 mid-1到R号元素
+                }
+            }
+            
+            //找到元素该放的位置角标L后，将后面的元素依次移动位置
+            for (int j =i ;j>L;j--){
+                args[j]= args[j-1];
+            }
+            //将待插入元素放入角标L的位置
+            args[L] = temp;
+        }
+        return  args;
+    }
