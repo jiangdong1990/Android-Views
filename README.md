@@ -20,7 +20,6 @@ LinkList是基于双向链表来实现的，因此它的增删效率快，查询
 
 ## 算法
 ### 插入算法
- //插入算法
     private int[] insertSort(int[] args){
        if (args==null||args.length<2){
            return args;
