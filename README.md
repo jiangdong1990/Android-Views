@@ -20,6 +20,7 @@ LinkList是基于双向链表来实现的，因此它的增删效率快，查询
 
 ## 算法
 ### 插入算法
+    //插入算法
     private int[] insertSort(int[] args){
        if (args==null||args.length<2){
            return args;
@@ -34,8 +35,7 @@ LinkList是基于双向链表来实现的，因此它的增删效率快，查询
        }
        return args;
     }
-
-
+   
     //折半插入算法
     private int[] halfInsertSort(int[] args){
         if (args==null||args.length<2){
@@ -64,4 +64,19 @@ LinkList是基于双向链表来实现的，因此它的增删效率快，查询
             args[L] = temp;
         }
         return  args;
+    }
+    //冒泡排序
+    private void  BubbleSort(int[] args){
+        if (args==null||args.length<2){
+            return ;
+        }
+        for (int i =0;i<args.length-1;i++){
+            for (int j = 0;j<args.length-i;j++){
+                if (args[j]>args[j+1]){
+                    int temp = args[j];
+                    args[j] = args[j+1];
+                    args[j+1] = temp;
+                }
+            }
+        }
     }
