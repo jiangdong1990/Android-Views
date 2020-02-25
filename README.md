@@ -95,3 +95,6 @@ LinkList是基于双向链表来实现的，因此它的增删效率快，查询
             }
         }
     }
+
+# 自定义View
+[自定义view全解](https://www.cnblogs.com/aademeng/articles/11032816.html)
