@@ -101,3 +101,7 @@ LinkList是基于双向链表来实现的，因此它的增删效率快，查询
 # 事件分发机制
 [android 事件分发详细篇](https://www.jianshu.com/p/bc4c9e5f4b1c)
 [android 事件分发基础篇](https://www.cnblogs.com/chengxuyinli/p/9979826.html)
+
+### 主线程中的Looper.loop()一直无限循环为什么不会造成ANR？
+主线程Looper从消息队列读取消息，当读完所有消息时，主线程阻塞。子线程往消息队列发送消息，并且往papi管道文件写数据，主线程即被唤醒，从管道文件读取数据，主线程被唤醒只是为了读取消息，当消息读取完毕，再次睡眠。因此loop的循环并不会对CPU性能有过多的消耗
+
